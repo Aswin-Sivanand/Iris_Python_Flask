@@ -8,7 +8,7 @@ app = Flask(__name__)
 def hello():
     return render_template('index.html')
 
-@app.route('/result',methods=['GET','POST'])
+@app.route('/prediction',methods=['GET','POST'])
 def predict():
     if request.method == 'POST':
         sep_len = request.form['sl']
@@ -26,9 +26,9 @@ def predict():
             classification = 'Vercicolor'
         else :
             classification = 'Virginica'
-        return render_template('result.html', output=classification)
+        return render_template('prediction.html', output=classification)
     else:
-        return render_template('result.html')
+        return render_template('prediction.html')
     
 
 
